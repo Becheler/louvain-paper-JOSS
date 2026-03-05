@@ -29,11 +29,11 @@ The Boost Graph Library is widely used but lacks community detection methods suc
 
 # Key Design Decisions
 
-The implementation is templated on graph type, quality function with support for incremental optimization [@Campigotto2014] and termination conditions.
+The implementation is templated on graph type, quality function with support for incremental optimization and termination conditions.
 
 The choice of quality function also determines runtime cost. A function exposing only a basic evaluation interface requires a full O(V+E) quality recomputation for every candidate vertex move. A function that additionally exposes an incremental interface [@Campigotto2014] can evaluate each candidate move in O(1) through local bookkeeping, reducing the total per-vertex cost to O(degree). The algorithm detects which interface is present at compile time and selects the faster code path automatically, at no runtime cost. The practical consequence for users is straightforward: a non-incremental quality function is always sufficient to obtain correct results, while an incremental one is a drop-in optimization whenever the user can provide it.
 
-We also templated the local optimization and aggregation termination predicates as different application domains may require different stopping conditions, including fixed gain thresholds, decisions learned from gain decay patterns, or number of vertices moved. Exposing the predicate as a template parameter lets users substitute any criterion at compile time without modifying the algorithm.
+We templated the local optimization and aggregation termination predicates as different application domains may require different stopping conditions, including fixed gain thresholds [@Campigotto2014], threshold scaling [@halappanavar2017scalable], decisions learned from gain decay patterns, or number of vertices moved. Exposing the predicate as a template parameter lets users substitute any criterion at compile time without modifying the algorithm.
 
 # Benchmarks
 

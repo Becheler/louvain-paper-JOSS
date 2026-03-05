@@ -39,6 +39,9 @@ We templated on local optimization and aggregation termination predicates as dif
 
 Our comparative benchmarks serve three purposes. They validate genericity by showing that different BGL data structures can be injected into the algorithm, with different performance profiles but similar output quality. They confirm correctness by showing that the communities we detect are consistent with established implementations. Finally, they demonstrate that high C++ genericity carries little to no overhead in practice, with runtime matching or outperforming competitors.
 
+[](communities.png)
+[](speedup.png)
+
 # Availability and Quality
 
 The algorithm is integrated into the Boost Graph Library under the Boost Software License, with full CI and unit test coverage. The code has been documented and reviewed during the pull request process. Because the algorithm is a heuristic, a dedicated benchmarking repository has been set up with a correctness and runtime comparison suite run in CI. The implementation has been validated on multiple standard graphs, both synthetic and real-world, across several BGL graph types, and compared against competing implementations.

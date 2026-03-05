@@ -39,8 +39,8 @@ We templated on local optimization and aggregation termination predicates as dif
 
 Our comparative benchmarks serve three purposes. They validate genericity by showing that different BGL data structures can be injected into the algorithm, with different performance profiles but similar output quality. They confirm correctness by showing that the communities we detect are consistent with established implementations. Finally, they demonstrate that high C++ genericity carries little to no overhead in practice, with runtime matching or outperforming competitors.
 
-[](communities.png)
-[](speedup.png)
+![](communities.png)
+![](speedup.png)
 
 # Availability and Quality
 
